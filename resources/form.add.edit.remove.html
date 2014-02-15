@@ -1,0 +1,84 @@
+[[!getSheetData]]
+[[!FormIt?
+  &hooks=`examSheet,redirect`
+  &redirectTo=`1`
+  &placeholderPrefix=``
+  &validate=`student:required,
+       group:required,
+       course:required,
+       subject:required,
+       examiner:required,
+       score:required`
+]]
+<div class="row">
+<div class="col-lg-6" style="margin-left: auto; margin-right: auto; float: none;">
+[[!+error.process_error:notempty=`<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Ошибка!</strong> [[!+error.process_error]]
+</div>`]]
+<div class="well">
+  <form class="bs-example form-horizontal" action="[[~[[*id]]]]" method="post">
+    <input type="hidden" value="[[!+id]]" name="sheet">
+    <fieldset>
+      <legend>[[*pagetitle]]</legend>
+      <div class="form-group [[!+error.student:notempty=`has-error`]]">
+        <label for="student" class="col-lg-4 control-label">Студент</label>
+        <div class="col-lg-8">
+          <input type="text" value="[[!+student]]" class="form-control"
+          id="student" placeholder="Иванов Александр Юрьевич" name="student">
+          <span class="help-block">[[!+error.student]]</span>
+        </div>
+      </div>
+      <div class="form-group [[!+error.group:notempty=`has-error`]]">
+        <label for="group" class="col-lg-4 control-label">Группа</label>
+        <div class="col-lg-8">
+          <input type="text" value="[[!+group]]" class="form-control"
+          id="group" placeholder="МО-54" name="group">
+          <span class="help-block">[[!+error.group]]</span>
+        </div>
+      </div>
+      <div class="form-group [[!+error.course:notempty=`has-error`]]">
+        <label for="course" class="col-lg-4 control-label">Курс</label>
+        <div class="col-lg-8">
+          <input type="text" value="[[!+course]]" class="form-control"
+          id="course" placeholder="5" name="course">
+          <span class="help-block">[[!+error.course]]</span>
+        </div>
+      </div>
+      <div class="form-group [[!+error.subject:notempty=`has-error`]]">
+        <label for="subject" class="col-lg-4 control-label">Предмет</label>
+        <div class="col-lg-8">
+          <input type="text" value="[[!+subject]]" class="form-control"
+          id="subject" placeholder="Статистика" name="subject">
+          <span class="help-block">[[!+error.subject]]</span>
+        </div>
+      </div>
+      <div class="form-group [[!+error.examiner:notempty=`has-error`]]">
+        <label for="examiner" class="col-lg-4 control-label">Преподаватель</label>
+        <div class="col-lg-8">
+          <input type="text" value="[[!+examiner]]" class="form-control"
+          id="examiner" placeholder="Ефремов Виталий Борисович" name="examiner">
+          <span class="help-block">[[!+error.examiner]]</span>
+        </div>
+      </div>
+      <div class="form-group [[!+error.score:notempty=`has-error`]]">
+        <label for="score" class="col-lg-4 control-label">Оценка</label>
+        <div class="col-lg-8">
+          <input type="text" value="[[!+score]]" class="form-control"
+          id="score" placeholder="4" name="score">
+          <span class="help-block">[[!+error.score]]</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-8 col-lg-offset-4">
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+          <button type="submit" class="btn btn-danger btn-xs"
+            name="remove" value="remove"
+            onclick="return confirm('Удалить экзаменационный лист?')">Удалить</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+</div>
