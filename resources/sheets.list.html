@@ -1,0 +1,27 @@
+<a href="[[~4]]" class="btn btn-primary">
+    <span class="glyphicon glyphicon-plus"></span>
+    Выдать экзаминационный лист
+</a>
+<table class="table">
+<thead>
+<tr>
+    <th>№</th>
+    <th>Студент</th>
+    <th>Группа</th>
+    <th>Курс</th>
+    <th>Предмет</th>
+    <th>Преподаватель</th>
+    <th>Дата выдачи</th>
+    <th>Оценка</th>
+</tr>
+</thead>
+<tbody>
+[[!pdoPage?
+    &class=`ExamSheet`
+    &tpl=`tpl.examSheet`
+    &element=`getSheets`
+    &limit=`50`
+]]
+</tbody>
+</table>
+[[!+page.nav]]
