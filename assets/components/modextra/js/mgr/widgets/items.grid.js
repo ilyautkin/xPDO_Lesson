@@ -125,7 +125,7 @@ modExtra.window.CreateItem = function(config) {
 	Ext.applyIf(config,{
 		title: _('modextra_item_create')
 		,id: this.ident
-		,height: 550
+		,height: 550 // Высоту ставим побольше, так как количество полей уже не 2, а больше
 		,width: 475
 		,url: modExtra.config.connector_url
 		,action: 'mgr/item/create'
@@ -153,7 +153,7 @@ modExtra.window.UpdateItem = function(config) {
 	Ext.applyIf(config,{
 		title: _('modextra_item_update')
 		,id: this.ident
-		,height: 550
+		,height: 550 // Высоту ставим побольше, так как количество полей уже не 2, а больше
 		,width: 475
 		,url: modExtra.config.connector_url
 		,action: 'mgr/item/update'
